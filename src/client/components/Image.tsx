@@ -1,14 +1,15 @@
-import React from 'react';
-import { cn } from '@bem-react/classname';
+import React from 'react'
+import { cn } from '@bem-react/classname'
 
 export interface ImageProps {
-    className?: string;
+  className?: string
 }
 
-const STUB = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=';
+const STUB =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII='
 
-const bem = cn('Image');
+const bem = cn('Image')
 
 export const Image: React.FC<ImageProps> = ({ className }) => {
-    return <img className={bem(null, [className])} src={STUB} />;
+  return <img className={bem(null, [className])} src={STUB} />
 }
