@@ -65,7 +65,9 @@ export const Cart: React.FC = () => {
         <tfoot>
           <tr>
             <td colSpan={4}>Order price:</td>
-            <td className={bem('OrderPrice')}>${total}</td>
+            <td data-testid="total" className={bem('OrderPrice')}>
+              ${total}
+            </td>
           </tr>
         </tfoot>
       </table>
@@ -74,7 +76,10 @@ export const Cart: React.FC = () => {
     content = (
       <>
         Cart is empty. Please select products in the{' '}
-        <Link to="/catalog">catalog</Link>.
+        <Link data-testid="to-catalog" to="/catalog">
+          catalog
+        </Link>
+        .
       </>
     )
   }
@@ -83,6 +88,7 @@ export const Cart: React.FC = () => {
     <div className="row mb-4">
       <div className="col-6">
         <button
+          data-testid="clear"
           className={bem('Clear', ['btn', 'btn-outline-secondary'])}
           onClick={onClear}
         >
@@ -108,7 +114,10 @@ export const Cart: React.FC = () => {
     cartIsEmpty && latestOrderId ? (
       <div className="row my-2">
         <div className="col-12 col-sm-8 col-md-6">
-          <div className={bem('SuccessMessage', ['alert', alertClass])}>
+          <div
+            data-testid="done-message"
+            className={bem('SuccessMessage', ['alert', alertClass])}
+          >
             <h4 className="alert-heading">Well done!</h4>
             <p>
               Order #<strong className={bem('Number')}>{latestOrderId}</strong>{' '}

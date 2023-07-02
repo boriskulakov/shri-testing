@@ -36,7 +36,9 @@ export const Catalog: React.FC = () => {
           <h1>Catalog</h1>
         </div>
       </div>
-      <div className="row">{items}</div>
+      <div data-testid="products" className="row">
+        {items}
+      </div>
     </div>
   )
 }

@@ -75,6 +75,7 @@ export const Form: React.FC<FormProps> = ({ onSubmit }) => {
         </label>
         <input
           id="f-name"
+          data-testid="f-name"
           type="text"
           disabled={sent}
           className={bem('Field', { type: 'name' }, [
@@ -91,6 +92,7 @@ export const Form: React.FC<FormProps> = ({ onSubmit }) => {
         </label>
         <input
           id="f-phone"
+          data-testid="f-phone"
           type="text"
           disabled={sent}
           className={bem('Field', { type: 'phone' }, [
@@ -106,6 +108,7 @@ export const Form: React.FC<FormProps> = ({ onSubmit }) => {
         </label>
         <textarea
           id="f-address"
+          data-testid="f-address"
           disabled={sent}
           rows={3}
           className={bem('Field', { type: 'address' }, [
@@ -117,6 +120,7 @@ export const Form: React.FC<FormProps> = ({ onSubmit }) => {
       </div>
 
       <button
+        data-testid="submit"
         className={bem('Submit', ['btn', 'btn-primary'])}
         disabled={sent}
         onClick={onClick}

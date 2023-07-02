@@ -40,7 +40,11 @@ export const Application: FC = () => {
       <Helmet titleTemplate="%s — Example store" />
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <div className="container">
-          <Link className={bem('Brand', ['navbar-brand'])} to="/">
+          <Link
+            data-testid="market-name"
+            className={bem('Brand', ['navbar-brand'])}
+            to="/"
+          >
             Example store
           </Link>
           <button
@@ -50,7 +54,7 @@ export const Application: FC = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className={bem('Menu', [navbarClass])}>
+          <div data-testid="menu" className={bem('Menu', [navbarClass])}>
             <div className="navbar-nav">
               <NavLink
                 className="nav-link"
@@ -77,6 +81,7 @@ export const Application: FC = () => {
                 Contacts
               </NavLink>
               <NavLink
+                data-testid="cart-link"
                 className="nav-link"
                 activeClassName="active"
                 to="/cart"
