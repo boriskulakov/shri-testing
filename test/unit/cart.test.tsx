@@ -84,17 +84,23 @@ describe('Корзина', () => {
     fireEvent.click(button)
     expect(table).not.toBeInTheDocument()
   })
+})
 
+describe('Пустая корзина', () => {
+  const fakeCartApi = new CartApi()
+  fakeCartApi.getState = jest.fn((): CartState => {return {}})
+
+  const store = initStore(new ExampleApi('/hw/store'), fakeCartApi)
+  const application = (
+    <MemoryRouter initialEntries={['/cart']} initialIndex={0}>
+      <Provider store={store}>
+        <Application />
+      </Provider>
+    </MemoryRouter>
+  )
   it('Если корзина пустая, должна отображаться ссылка на каталог товаров', async () => {
     const { getByTestId } = render(application)
-    const button = getByTestId('clear')
-
-    if (Object.entries(fakeProducts).length > 0) {
-      fireEvent.click(button)
-    }
-
-    const link = getByTestId('to-catalog')
-    expect(link).toBeInTheDocument()
+    expect(getByTestId('to-catalog')).toBeInTheDocument()
   })
 })
 
